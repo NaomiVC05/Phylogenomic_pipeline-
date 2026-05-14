@@ -26,7 +26,7 @@ input_folder_path = "/shared/forsythe/BB485/Week06/Brass_CDS_seqs/"
 input_file_path_list = glob.glob(input_folder_path+"*.fasta")
 print(input_file_path_list)
 
-for temp_file in input_file_path_list[0:10]: ###Remove 0-10 to do full run
+for temp_file in input_file_path_list: ###Remove 0-10 to do full run
     print(temp_file)
 
     full_path_to_file = temp_file
@@ -55,8 +55,9 @@ for temp_file in input_file_path_list[0:10]: ###Remove 0-10 to do full run
 
     ##Perform phylogenetic tree construction using IQtree 
 
-    #Create the command. -nt 2 means two threads. If running this from within a job submission, you could use more threads to make it go faster.
-    tree_command = f"iqtree -s {new_file_path} -m TEST -nt 2"
+    #Create the command. -nt 2 means two threads. If running 
+    #this from within a job submission, you could use more threads to make it go faster.
+    tree_command = f"iqtree -s {new_file_path} -m TEST -nt 24"
 
     #Check the command 
     #print(tree_command)
